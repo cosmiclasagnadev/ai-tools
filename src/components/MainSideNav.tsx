@@ -4,6 +4,7 @@ import {Separator} from './ui/separator'
 import {Send} from 'lucide-react';
 import {NAVIGATION_LINKS} from '@/constants/Navigation';
 import NavLink from './NavLink';
+import LogoLink from './LogoLink';
 
 type Props = {
     children: React.ReactNode
@@ -14,7 +15,7 @@ const MainSideNav = ({children}: Props) => {
         <div className="flex">
             <div className="w-64 bg-stone-800 border-r-[1px] border-stone-700">
                 <div className="p-4">
-                    <span className="font-bold text-xl text-emerald-300">AiTools</span>
+                    <LogoLink />
                 </div>
                 <Separator className="bg-stone-700 bg-opacity-75" />
                 <ul>

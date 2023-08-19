@@ -4,7 +4,12 @@ import {Send, Home} from "lucide-react";
 export const NAVIGATION_LINKS: NavLinkProps[] = [
   {
     href: "#",
-    title: "Submit Tool",
+    title: "Free",
+    Icon: Send,
+  },
+  {
+    href: "#",
+    title: "Paid",
     Icon: Send,
   },
 ];
