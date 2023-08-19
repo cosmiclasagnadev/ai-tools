@@ -11,9 +11,9 @@ export type NavLinkProps = {
 const NavLink = ({Icon, href, title}: NavLinkProps) => {
     return (
         <Link href={href}>
-            <div className="flex gap-2 transition-all ease-in-out items-center text-stone-500 hover:text-stone-200 hover:bg-stone-900 px-3 py-3">
+            <div className="flex gap-2 transition-all ease-in-out items-center text-stone-500 hover:text-stone-200 hover:bg-stone-900 px-4 py-2">
                 {Icon && <Icon size={20} />}
-                <span>{title}</span>
+                <span className="text-sm">{title}</span>
             </div>
         </Link>
     )

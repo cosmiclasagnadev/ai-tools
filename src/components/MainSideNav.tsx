@@ -23,7 +23,7 @@ const MainSideNav = async ({children}: Props) => {
                 <div className="p-4">
                     <LogoLink />
                 </div>
-                <Separator className="bg-stone-700 bg-opacity-75" />
+                <Separator className="bg-stone-700 bg-opacity-75 mt-2 mb-5" />
                 <ul>
                     {NAVIGATION_LINKS.map((link) => (
                         <li key={link.title}>
@@ -32,8 +32,8 @@ const MainSideNav = async ({children}: Props) => {
                     ))
                     }
                 </ul>
-                <Separator className="bg-stone-700 bg-opacity-75 mb-4" />
-                <span className="font-bold p-3 text-stone-100">Categories</span>
+                <Separator className="bg-stone-700 bg-opacity-75 mt-5 mb-3" />
+                <span className="font-bold px-4 py-2 text-stone-100 text-sm">Categories</span>
                 <ul className="mt-2">
                     {categories?.map((category) => (
                         <li key={category.unnest}>
