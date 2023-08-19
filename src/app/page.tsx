@@ -8,7 +8,7 @@ export default async function Home() {
   return (
     <main className="min-h-screen w-full p-8 bg-stone-900">
       <SimpleHeroBanner />
-      <Separator className="my-8 text-stone-700 text-opacity-75" />
+      <Separator className="my-8 bg-stone-700 bg-opacity-75" />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {tools?.map(tool => (
           <ToolCard key={tool.title} {...tool} />

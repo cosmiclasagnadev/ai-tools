@@ -19,10 +19,10 @@ const ToolCard = ({title, description, featured_image, tags, url, freeOrPaid}: T
                     <Image className="object-cover group-hover:scale-[1.05] transition-transform duration-500 v-lazy-image v-lazy-image-loaded" alt={`image depicting ${title}`} src={featured_image} width={400} height={200} />
                 </div>
                 <div className="absolute bottom-2 right-2 group-hover:flex hidden items-end space-x-2 flex-col ">
-                    <div className="mb-2 bg-gradient-to-r from-emerald-600 to-green-700 px-4 py-2 rounded-md"><h2 className="text-md font-bold tracking-tight text-stone-100 dark:text-white">{title}</h2></div>
-                    <div className="flex gap-2">
+                    <div className="mb-2 bg-gradient-to-r from-emerald-600 to-green-700 px-4 rounded-md"><h2 className="text-md font-bold tracking-tight text-stone-100 dark:text-white">{title}</h2></div>
+                    <div className="space-x-1.5 flex justify-end overflow-x-auto flex-wrap">
                         {tags.map((tag) => (
-                            <span key={tag} className="p-1 bg-stone-800 rounded-sm text-xs text-stone-200">{tag}</span>
+                            <span key={tag} className="p-1 bg-stone-800 rounded-sm text-xs text-stone-200 mt-2">{tag}</span>
                         ))}
                     </div>
                 </div>
