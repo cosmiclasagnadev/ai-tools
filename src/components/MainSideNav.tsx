@@ -6,16 +6,14 @@ import {NAVIGATION_LINKS} from '@/constants/Navigation';
 import NavLink from './NavLink';
 import LogoLink from './LogoLink';
 import supabase from '@/lib/supabase';
+import {capitalizeAndRemoveHyphen} from '@/lib/utils';
 
 type Props = {
     children: React.ReactNode
 }
 
 const MainSideNav = async ({children}: Props) => {
-    const {data: categories} = await supabase.from('categ').select('*');
-    const capitalizeAndRemoveHyphen = (str: string) => {
-        return str.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
-    }
+    const {data: categories} = await supabase.from('tools_categ').select('*');
 
     return (
         <div className="flex">
@@ -24,23 +22,27 @@ const MainSideNav = async ({children}: Props) => {
                     <LogoLink />
                 </div>
                 <Separator className="bg-stone-700 bg-opacity-75 mt-2 mb-5" />
-                <ul>
-                    {NAVIGATION_LINKS.map((link) => (
-                        <li key={link.title}>
-                            <NavLink Icon={link.Icon} href={link.href} title={link.title} />
-                        </li>
-                    ))
-                    }
-                </ul>
+                <nav>
+                    <ul>
+                        {NAVIGATION_LINKS.map((link) => (
+                            <li key={link.title}>
+                                <NavLink Icon={link.Icon} href={link.href} title={link.title} />
+                            </li>
+                        ))
+                        }
+                    </ul>
+                </nav>
                 <Separator className="bg-stone-700 bg-opacity-75 mt-5 mb-3" />
                 <span className="font-bold px-4 py-2 text-stone-100 text-sm">Categories</span>
-                <ul className="mt-2">
-                    {categories?.map((category) => (
-                        <li key={category.unnest}>
-                            <NavLink href={`/category/${category.unnest}`} title={capitalizeAndRemoveHyphen(category.unnest)} />
-                        </li>
-                    ))}
-                </ul>
+                <nav>
+                    <ul className="mt-2">
+                        {categories?.map((category) => (
+                            <li key={category.unnest}>
+                                <NavLink href={`/categories/${category.category}`} title={capitalizeAndRemoveHyphen(category.category)} count={category.count} />
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
             </div>
             {children}
         </div>

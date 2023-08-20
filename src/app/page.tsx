@@ -2,19 +2,20 @@ import SimpleHeroBanner from '@/components/SimpleHeroBanner'
 import ToolCard from '@/components/ToolCard';
 import {Separator} from '@/components/ui/separator';
 import supabase from '@/lib/supabase';
+import {HOME_CONTENT} from '@/constants/Content';
+import ToolsGridArea from '@/components/ToolsGridArea';
+import Footer from '@/components/Footer';
+import Search from '@/components/Search';
 
 export default async function Home() {
-  const {data: tools} = await supabase.from('tools').select('*')
+  const {data: tools} = await supabase.from('tools').select('*').limit(20)
   return (
-    <main className="min-h-screen w-full p-8 bg-stone-900">
-      <SimpleHeroBanner />
+    <main className="min-h-screen w-full p-8 bg-stone-900 relative">
+      {/* <Search /> */}
+      <SimpleHeroBanner {...HOME_CONTENT} />
       <Separator className="my-8 bg-stone-700 bg-opacity-75" />
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {tools?.map(tool => (
-          <ToolCard key={tool.title} {...tool} />
-        ))}
-      </div>
-      {/* <pre className="text-white">{JSON.stringify(tools, null, 2)}</pre> */}
+      <ToolsGridArea tools={tools} />
+      <Footer />
     </main>
   )
 }

@@ -3,9 +3,11 @@ import React from 'react'
 type Props = {
     showBanner?: boolean;
     bannerText?: string;
+    heroTitle: string;
+    heroDescription: string;
 }
 
-const SimpleHeroBanner = ({showBanner, bannerText}: Props) => {
+const SimpleHeroBanner = ({showBanner, bannerText, heroTitle, heroDescription}: Props) => {
     return (
         <section>
             <div className="max-w-7xl">
@@ -15,8 +17,8 @@ const SimpleHeroBanner = ({showBanner, bannerText}: Props) => {
                             <p className="text-xs font-semibold tracking-widest text-white uppercase">{bannerText ?? '130+ Handcoded Blocks'}</p>
                         </div>
                     }
-                    <h1 className="mt-6 text-3xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-400 sm:text-2xl lg:text-4xl">Free AI Tools Library</h1>
-                    <p className="mt-4 text-base leading-relaxed text-stone-500">We&apos;ve collected all the best AI tools, all in one place. Discover AI tools perfect for your business or side project. From automation tools to writing assistants, you&apos;ll find the perfect tool here with a few clicks.</p>
+                    <h1 className="mt-6 text-3xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-400 sm:text-2xl lg:text-4xl">{heroTitle}</h1>
+                    <p className="mt-4 text-base leading-relaxed text-stone-500">{heroDescription}</p>
                 </div>
             </div>
         </section>

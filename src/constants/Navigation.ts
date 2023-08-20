@@ -1,15 +1,20 @@
 import {NavLinkProps} from "@/components/NavLink";
-import {Send, Flame, CircleDollarSign} from "lucide-react";
+import {BoxSelect, Flame, CircleDollarSign} from "lucide-react";
 
 export const NAVIGATION_LINKS: NavLinkProps[] = [
   {
-    href: "#",
+    href: "/free",
     title: "Free",
     Icon: Flame,
   },
   {
-    href: "#",
+    href: "/paid",
     title: "Paid",
     Icon: CircleDollarSign,
+  },
+  {
+    href: "/categories",
+    title: "Categories",
+    Icon: BoxSelect,
   },
 ];
