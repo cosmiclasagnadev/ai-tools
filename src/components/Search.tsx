@@ -9,10 +9,9 @@ const Search = (props: Props) => {
             <Input
                 type="search"
                 placeholder="🔍 Search..."
-                className="md:w-[100px] lg:w-[300px] bg-stone-700 bg-opacity-75 border-stone-700 border-opacity-75 border-2 rounded-md p-2"
+                className="md:w-[100px] lg:w-[300px] bg-stone-700 bg-opacity-75 border-stone-700 border-opacity-75 border-2 rounded-md p-2 text-white"
             />
         </div>
-
     )
 }
 

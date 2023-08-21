@@ -1,4 +1,4 @@
-import MainSideNav from '@/components/MainSideNav'
+import MainSideNav from '@/components/layouts/MainSideNav'
 import './globals.css'
 import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'

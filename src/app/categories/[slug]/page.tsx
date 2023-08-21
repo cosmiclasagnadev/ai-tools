@@ -1,8 +1,9 @@
+import Footer from '@/components/Footer'
 import SimpleHeroBanner from '@/components/SimpleHeroBanner'
 import ToolCard from '@/components/ToolCard'
+import ToolsContentArea from '@/components/ToolsContentArea'
 import ToolsGridArea from '@/components/ToolsGridArea'
 import ContentAreaLayout from '@/components/layouts/ContentAreaLayout'
-import {Separator} from '@/components/ui/separator'
 import supabase from '@/lib/supabase'
 import {generateCategoryHeroContent} from '@/lib/utils'
 import React from 'react'
@@ -17,9 +18,7 @@ const SingleCategoryPage = async ({params: {slug}}: {params: {slug: string}}) =>
         .contains('tags', [`${slug}`])
     return (
         <ContentAreaLayout>
-            <SimpleHeroBanner heroTitle={heroTitle} heroDescription={heroDescription} />
-            <Separator className="my-8 bg-stone-700 bg-opacity-75" />
-            <ToolsGridArea tools={tools} />
+            <ToolsContentArea content={{heroTitle, heroDescription}} tools={tools} />
         </ContentAreaLayout>
     )
 }

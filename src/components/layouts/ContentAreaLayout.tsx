@@ -1,4 +1,5 @@
 import React from 'react'
+import Header from '../Header';
 
 type Props = {
     children: React.ReactNode;
@@ -6,7 +7,8 @@ type Props = {
 
 const ContentAreaLayout = ({children}: Props) => {
     return (
-        <main className="min-h-screen w-full p-8 bg-stone-900">
+        <main className="min-h-screen w-full bg-stone-900 relative">
+            <Header />
             {children}
         </main>
     )

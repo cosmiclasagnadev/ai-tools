@@ -6,7 +6,7 @@ type Props = {}
 
 const Footer = (props: Props) => {
     return (
-        <section className="absolute bottom-0 left-0 border-t border-solid border-stone-700/50 w-[100%] py-12 bg-stone-900">
+        <section className="mt-11 border-t border-solid border-stone-700/50 w-[100%] py-12 bg-stone-900">
             <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                 <div className="text-center xl:flex xl:items-center xl:justify-between xl:text-left">
                     <div className="xl:flex xl:items-center xl:justify-start">

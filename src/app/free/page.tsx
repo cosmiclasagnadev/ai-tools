@@ -1,21 +1,22 @@
+import Footer from '@/components/Footer'
 import SimpleHeroBanner from '@/components/SimpleHeroBanner'
 import ToolCard from '@/components/ToolCard'
+import ToolsContentArea from '@/components/ToolsContentArea'
 import ToolsGridArea from '@/components/ToolsGridArea'
 import ContentAreaLayout from '@/components/layouts/ContentAreaLayout'
-import {Separator} from '@/components/ui/separator'
 import {FREEPAGE_CONTENT} from '@/constants/Content'
 import supabase from '@/lib/supabase'
 import React from 'react'
 
 type Props = {}
 
+export const revalidate = 60
+
 const FreeToolsPage = async (props: Props) => {
     const {data: tools, error} = await supabase.from('tools').select('*').in('freeOrPaid', ['free', 'free-plan']);
     return (
         <ContentAreaLayout>
-            <SimpleHeroBanner {...FREEPAGE_CONTENT} />
-            <Separator className="my-8 bg-stone-700 bg-opacity-75" />
-            <ToolsGridArea tools={tools} />
+            <ToolsContentArea content={FREEPAGE_CONTENT} tools={tools} />
         </ContentAreaLayout>
     )
 }

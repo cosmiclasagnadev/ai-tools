@@ -1,25 +1,19 @@
-import SimpleHeroBanner from '@/components/SimpleHeroBanner'
 import React from 'react'
 import {CATEGORIES_CONTENT} from '@/constants/Content'
-import {Separator} from '@/components/ui/separator'
 import supabase from '@/lib/supabase'
-import CategoryCard from '@/components/CategoryCard'
-import {capitalizeAndRemoveHyphen} from '@/lib/utils'
+import ContentAreaLayout from '@/components/layouts/ContentAreaLayout'
+import CategoriesContentArea from '@/components/CategoriesContentArea'
 
 type Props = {}
+
+export const revalidate = 60;
 
 const CategoriesPage = async (props: Props) => {
     const {data: categories} = await supabase.from('tools_categ').select('*');
     return (
-        <main className="min-h-screen w-full p-8 bg-stone-900">
-            <SimpleHeroBanner {...CATEGORIES_CONTENT} />
-            <Separator className="my-8 bg-stone-700 bg-opacity-75" />
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {categories?.map((category) => (
-                    <CategoryCard key={category.category} category={category.category} count={category.count} />
-                ))}
-            </div>
-        </main>
+        <ContentAreaLayout>
+            <CategoriesContentArea content={CATEGORIES_CONTENT} categories={categories} />
+        </ContentAreaLayout>
     )
 }
 
