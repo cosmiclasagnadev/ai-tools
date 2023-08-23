@@ -2,6 +2,9 @@ import MainSideNav from '@/components/layouts/MainSideNav'
 import './globals.css'
 import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
+import Script from 'next/script'
+import {Suspense} from 'react'
+import Analytics from '@/components/Analytics'
 
 const inter = Inter({subsets: ['latin']})
 
@@ -21,6 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Suspense>
+          <Analytics />
+        </Suspense>
         <MainSideNav>
           {children}
         </MainSideNav>
