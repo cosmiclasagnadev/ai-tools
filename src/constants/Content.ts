@@ -12,10 +12,12 @@ export const CATEGORIES_CONTENT = {
 
 export const FREEPAGE_CONTENT = {
   heroTitle: "Free AI Tools",
-  heroDescription: "Discover the best free AI tools.",
+  heroDescription:
+    "We've collected all the best free AI tools, all in one place. Discover AI tools perfect for your business or side project. From automation tools to writing assistants, you'll find the perfect tool here with a few clicks.",
 };
 
 export const PAIDPAGE_CONTENT = {
   heroTitle: "Paid AI Tools",
-  heroDescription: "Discover the best paid AI tools.",
+  heroDescription:
+    "We've collected all the best paid AI tools, all in one place. Discover AI tools perfect for your business or side project. From automation tools to writing assistants, you'll find the perfect tool here with a few clicks.",
 };

@@ -8,7 +8,7 @@ type Props = {
 
 const ToolsGridArea = ({tools}: Props) => {
     return (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-2 space-y-8">
             {tools?.length === 0 && (
                 <NoToolsArea />
             )}

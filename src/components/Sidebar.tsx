@@ -11,7 +11,7 @@ type Props = {}
 const Sidebar = async (props: Props) => {
     const {data: categories} = await supabase.from('tools_categ').select('*');
     return (
-        <div className="w-full md:w-64 bg-stone-800 border-r-[0px] md:border-r-[1px] border-stone-700 max-h-screen overflow-y-auto">
+        <div className="w-full md:w-64 bg-stone-800 border-r-[0px] md:border-r-[1px] border-stone-700 overflow-y-auto">
             <div className="p-4 h-[65px] border-b border-solid border-stone-700/75 md:mb-4 flex justify-between md:block">
                 <LogoLink />
                 <div className="md:hidden flex items-center">

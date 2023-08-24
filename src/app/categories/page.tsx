@@ -6,7 +6,11 @@ import CategoriesContentArea from '@/components/CategoriesContentArea'
 
 type Props = {}
 
-export const revalidate = 60;
+export const revalidate = 30;
+
+export const metadata = {
+    title: 'AI Tool Categories | AI Tools',
+}
 
 const CategoriesPage = async (props: Props) => {
     const {data: categories} = await supabase.from('tools_categ').select('*');

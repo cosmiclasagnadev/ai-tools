@@ -6,6 +6,10 @@ import React from 'react'
 
 type Props = {}
 
+export const metadata = {
+    title: 'Search for AI Tools | AI Tools',
+}
+
 const SearchResultsPage = (props: Props) => {
 
     return (
