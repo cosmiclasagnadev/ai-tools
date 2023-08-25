@@ -15,7 +15,7 @@ const SingleCategoryPage = async ({params: {slug}}: {params: {slug: string}}) =>
     const {data: tools, error} = await supabase
         .from('tools')
         .select()
-        .contains('tags', [`${slug}`])
+        .contains('tags', [`${slug}`]).limit(20)
     return (
         <ContentAreaLayout>
             <ToolsContentArea content={{heroTitle, heroDescription}} tools={tools} />
