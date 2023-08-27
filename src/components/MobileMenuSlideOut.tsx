@@ -66,7 +66,9 @@ export function MobileMenuSlideOut({categories}: any) {
                             <ScrollArea className="h-72 border-0">
                                 {categories?.map((category: any) => (
                                     <li key={category.unnest}>
-                                        <NavLink href={`/categories/${category.category}`} title={capitalizeAndRemoveHyphen(category.category)} count={category.count} />
+                                        <SheetClose className="w-full" asChild>
+                                            <NavLink href={`/categories/${category.category}`} title={capitalizeAndRemoveHyphen(category.category)} count={category.count} />
+                                        </SheetClose>
                                     </li>
                                 ))}
                             </ScrollArea>
