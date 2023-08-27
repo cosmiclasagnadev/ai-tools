@@ -20,7 +20,7 @@ const ToolsContentArea = ({content, queryFunction, tools}: Props) => {
     const [loadedTools, setLoadedTools] = React.useState<any>(tools);
     const [offset, setOffset] = React.useState(1);
     const [isLoading, setIsLoading] = React.useState(false);
-    const [isLast, setIsLast] = React.useState(false);
+    const [isLast, setIsLast] = React.useState(tools.length < PAGE_COUNT ? true : false);
 
     const fetchMoreTools = async (offset: number) => {
         const from = offset * PAGE_COUNT;

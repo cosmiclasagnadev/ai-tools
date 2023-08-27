@@ -5,6 +5,8 @@ import {Separator} from '@/components/ui/separator';
 import React from 'react'
 import LogoLink from './LogoLink';
 import NavLink from './NavLink';
+import {MobileMenuSlideOut} from './MobileMenuSlideOut';
+import SubmitATool from './SubmitATool';
 
 type Props = {}
 
@@ -12,22 +14,11 @@ const Sidebar = async (props: Props) => {
     const {data: categories} = await supabase.from('tools_categ').select('*');
     return (
         <div className="w-full md:w-64 bg-stone-800 border-r-[0px] md:border-r-[1px] border-stone-700 overflow-y-auto">
-            <div className="p-4 h-[65px] border-b border-solid border-stone-700/75 mb-4 flex justify-between md:block">
+            <div className="p-4 h-[65px] border-b border-solid border-stone-700/75 md:mb-4 flex justify-between md:block">
                 <LogoLink />
                 <div className="md:hidden flex items-center">
-                    <button className="outline-none mobile-menu-button">
-                        <svg className=" w-6 h-6 text-gray-500 hover:text-green-500 "
-                            x-show="!showMenu"
-                            fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
+                    <SubmitATool />
+                    <MobileMenuSlideOut categories={categories} />
                 </div>
             </div>
             <div className="hidden md:block">
