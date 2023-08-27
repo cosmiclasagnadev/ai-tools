@@ -8,7 +8,7 @@ type Props = {
 const MainSideNav = async ({children}: Props) => {
 
     return (
-        <div className="block md:flex">
+        <div className="block md:flex min-h-screen max-h-screen overflow-y-auto">
             <Sidebar />
             {children}
         </div>

@@ -7,7 +7,7 @@ type Props = {
 
 const ContentAreaLayout = ({children}: Props) => {
     return (
-        <main className="min-h-screen w-full bg-stone-900 relative">
+        <main className="min-h-screen max-h-screen overflow-y-auto w-full bg-stone-900 relative">
             <Header />
             {children}
         </main>

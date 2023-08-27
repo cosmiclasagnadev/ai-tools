@@ -12,7 +12,7 @@ const Sidebar = async (props: Props) => {
     const {data: categories} = await supabase.from('tools_categ').select('*');
     return (
         <div className="w-full md:w-64 bg-stone-800 border-r-[0px] md:border-r-[1px] border-stone-700 overflow-y-auto">
-            <div className="p-4 h-[65px] border-b border-solid border-stone-700/75 md:mb-4 flex justify-between md:block">
+            <div className="p-4 h-[65px] border-b border-solid border-stone-700/75 mb-4 flex justify-between md:block">
                 <LogoLink />
                 <div className="md:hidden flex items-center">
                     <button className="outline-none mobile-menu-button">
@@ -41,7 +41,7 @@ const Sidebar = async (props: Props) => {
                         }
                     </ul>
                 </nav>
-                <Separator className="bg-stone-700 bg-opacity-75 mt-5 mb-3" />
+                <Separator className="bg-stone-700 bg-opacity-75 mt-5 mb-5" />
                 <span className="font-bold px-4 py-2 text-stone-100 text-sm">Categories</span>
                 <nav className="border-b border-solid border-stone-700/75 md:border-b-0">
                     <ul className="mt-2">
