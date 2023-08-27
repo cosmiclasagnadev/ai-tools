@@ -20,13 +20,15 @@ export const generateCategoryHeroContent = (category: string) => {
   // if category has "ai" at the end, remove it
   if (category.endsWith("ai")) {
     category = category.slice(0, -2);
+  } else if (category.endsWith("tool")) {
+    category = category.slice(0, -4);
   }
   return {
-    heroTitle: `${capitalizeAndRemoveHyphen(category)} AI Tools`,
+    heroTitle: `AI ${capitalizeAndRemoveHyphen(category)} Tools`,
     heroDescription: `
-    This collection contains a variety of ${removeHyphens(
+    This collection contains a variety of AI ${removeHyphens(
       category
-    )} AI tools that can be used in your next project. From simple to more complex ones, this collection has everything you need to get started.
+    )} tools that can be used in your next project. From simple to more complex ones, this collection has everything you need to get started.
   `,
   };
 };

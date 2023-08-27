@@ -25,11 +25,13 @@ const ToolCard = ({title, description, featured_image, tags, url, freeOrPaid}: T
                         </div>
                         <div className="bg-gradient-to-r from-emerald-600 to-green-700 px-2 py-1 rounded-md"><h2 className="text-md font-bold tracking-tight text-stone-100 dark:text-white">{title}</h2></div>
                     </div>
-                    <div className="space-x-1.5 flex justify-end overflow-x-auto flex-wrap">
-                        {tags.map((tag) => (
-                            <span key={tag} className="p-1 bg-stone-800 rounded-sm text-xs text-stone-200 mt-2">{tag}</span>
-                        ))}
-                    </div>
+                    {tags && (
+                        <div className="space-x-1.5 flex justify-end overflow-x-auto flex-wrap">
+                            {tags?.map((tag) => (
+                                <span key={tag} className="p-1 bg-stone-800 rounded-sm text-xs text-stone-200 mt-2">{tag}</span>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
             </div>

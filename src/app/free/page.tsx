@@ -14,9 +14,19 @@ export const metadata = {
 
 const FreeToolsPage = async (props: Props) => {
     const {data: tools, error} = await supabase.from('tools').select('*').in('freeOrPaid', ['free', 'free-plan']).limit(20);
+
+    const loadMoreFunc = async (from: number, to: number) => {
+        "use server"
+        return await supabase!
+            .from('tools')
+            .select('*')
+            .in('freeOrPaid', ['free', 'free-plan'])
+            .range(from, to)
+            .order('id', {ascending: false})
+    }
     return (
         <ContentAreaLayout>
-            <ToolsContentArea content={FREEPAGE_CONTENT} tools={tools} />
+            <ToolsContentArea queryFunction={loadMoreFunc} content={FREEPAGE_CONTENT} tools={tools} />
         </ContentAreaLayout>
     )
 }

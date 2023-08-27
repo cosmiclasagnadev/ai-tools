@@ -1,7 +1,3 @@
-import Footer from '@/components/Footer'
-import NoToolsArea from '@/components/NoToolsArea'
-import SimpleHeroBanner from '@/components/SimpleHeroBanner'
-import ToolCard from '@/components/ToolCard'
 import ToolsContentArea from '@/components/ToolsContentArea'
 import ContentAreaLayout from '@/components/layouts/ContentAreaLayout'
 import {PAIDPAGE_CONTENT} from '@/constants/Content'
@@ -18,9 +14,19 @@ export const metadata = {
 
 const PaidToolsPage = async (props: Props) => {
     const {data: tools, error} = await supabase.from('tools').select('*').in('freeOrPaid', ['subscription', 'paid', 'free-plan']).limit(20);
+
+    const loadMoreFunc = async (from: number, to: number) => {
+        "use server"
+        return await supabase!
+            .from('tools')
+            .select('*')
+            .in('freeOrPaid', ['subscription', 'paid', 'free-plan'])
+            .range(from, to)
+            .order('id', {ascending: false})
+    }
     return (
         <ContentAreaLayout>
-            <ToolsContentArea content={PAIDPAGE_CONTENT} tools={tools} />
+            <ToolsContentArea queryFunction={loadMoreFunc} content={PAIDPAGE_CONTENT} tools={tools} />
         </ContentAreaLayout>
     )
 }

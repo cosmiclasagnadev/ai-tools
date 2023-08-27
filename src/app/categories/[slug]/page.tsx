@@ -14,11 +14,22 @@ const SingleCategoryPage = async ({params: {slug}}: {params: {slug: string}}) =>
     const {heroTitle, heroDescription} = generateCategoryHeroContent(slug);
     const {data: tools, error} = await supabase
         .from('tools')
-        .select()
-        .contains('tags', [`${slug}`]).limit(20)
+        .select('*')
+        .contains('tags', [`${slug}`]).limit(20).order('id', {ascending: false});
+
+    const loadMoreFunc = async (from: number, to: number) => {
+        "use server"
+        return await supabase!
+            .from('tools')
+            .select('*')
+            .contains('tags', [`${slug}`])
+            .range(from, to)
+            .order('id', {ascending: false})
+    }
+
     return (
         <ContentAreaLayout>
-            <ToolsContentArea content={{heroTitle, heroDescription}} tools={tools} />
+            <ToolsContentArea queryFunction={loadMoreFunc} content={{heroTitle, heroDescription}} tools={tools} />
         </ContentAreaLayout>
     )
 }
