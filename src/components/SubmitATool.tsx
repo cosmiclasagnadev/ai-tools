@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react'
+import axios from 'axios'
 import {Button} from "@/components/ui/button"
 import {
     Dialog,
@@ -27,6 +28,7 @@ import {Plus} from 'lucide-react'
 import * as z from 'zod';
 import {useForm} from 'react-hook-form'
 import {zodResolver} from "@hookform/resolvers/zod";
+import {DialogClose} from '@radix-ui/react-dialog'
 
 const formSchema = z.object({
     toolLink: z.string().url(
@@ -34,11 +36,13 @@ const formSchema = z.object({
     ),
 })
 
+const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 type Props = {}
 
 
 const SubmitATool = (props: Props) => {
-
+    const [isSubmitting, setIsSubmitting] = React.useState(false);
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema as any),
         defaultValues: {
@@ -46,8 +50,16 @@ const SubmitATool = (props: Props) => {
         },
     })
 
-    const onSubmit = (values: z.infer<typeof formSchema>) => {
-        alert('This feature is coming soon! Hang tight!')
+    const onSubmit = async (values: z.infer<typeof formSchema>) => {
+        setIsSubmitting(true);
+        wait(1000);
+        try {
+            await axios.post('/api/send', {toolLink: form.getValues().toolLink}, {});
+            alert('Thanks for submitting a tool! We will review it and add it to the list if it meets our criteria.')
+        } catch (e) {
+            alert('Something went wrong. Please try again')
+        }
+        setIsSubmitting(false);
     }
 
     return (
@@ -86,13 +98,14 @@ const SubmitATool = (props: Props) => {
                                     </FormItem>
                                 )}
                             />
-                            <Button type="submit" className="bg-emerald-700 hover:bg-emerald-900">Submit</Button>
+                            <DialogClose asChild>
+                                <Button type="submit" disabled={isSubmitting} className="bg-emerald-700 hover:bg-emerald-900">
+                                    {isSubmitting ? '🚀 Submitting...' : 'Submit'}
+                                </Button>
+                            </DialogClose>
                         </form>
                     </Form>
                 </div>
-                {/* <DialogFooter>
-                    <Button type="submit" className="bg-emerald-700 hover:bg-emerald-900">Submit</Button>
-                </DialogFooter> */}
             </DialogContent>
         </Dialog>
     )
