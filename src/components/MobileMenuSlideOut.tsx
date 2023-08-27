@@ -63,7 +63,7 @@ export function MobileMenuSlideOut({categories}: any) {
                     <span className="font-bold px-4 py-2 mb-4 text-stone-100 text-sm">Categories</span>
                     <nav className="border-b border-solid border-stone-700/75 md:border-b-0">
                         <ul className="mt-2">
-                            <ScrollArea className="h-[500px] border-0">
+                            <ScrollArea className="h-72 border-0">
                                 {categories?.map((category: any) => (
                                     <li key={category.unnest}>
                                         <NavLink href={`/categories/${category.category}`} title={capitalizeAndRemoveHyphen(category.category)} count={category.count} />
