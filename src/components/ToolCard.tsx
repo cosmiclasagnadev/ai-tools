@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react'
 import Image from 'next/image';
+import {shimmer, toBase64} from '@/lib/utils';
 
 type ToolCardProps = {
     title: string;
@@ -16,7 +17,7 @@ const ToolCard = ({title, description, featured_image, tags, url, freeOrPaid}: T
         <Link href={url} target="_blank" className="h-fit">
             <div className="group overflow-hidden relative shadow-md shadow-stone-800/50 hover:shadow-stone-800/75 hover:shadow-lg transition-all ease-in-out bg-stone-900 border border-stone-500/25 rounded-lg dark:bg-gray-800 dark:border-gray-700">
                 <div className="transparent-dark p-3 overflow-hidden rounded-lg bg-gray-200 border-4 border-transparent hover:border-emerald-500 hover:border-4 hover:border-solid cursor-pointer w-full min-h-[100px] flex items-center justify-center">
-                    <Image className="object-cover group-hover:scale-[1.05] transition-transform duration-500 v-lazy-image v-lazy-image-loaded" alt={`image depicting ${title}`} src={featured_image} width={400} height={200} />
+                    <Image className="object-cover group-hover:scale-[1.05] transition-transform duration-500 v-lazy-image v-lazy-image-loaded" alt={`image depicting ${title}`} src={featured_image} width={400} height={200} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(400, 200))}`} />
                 </div>
                 <div className="absolute bottom-2 right-2 group-hover:flex hidden items-end space-x-2 flex-col ">
                     <div className="flex flex-row justify-end w-full pr-1 space-x-2">
