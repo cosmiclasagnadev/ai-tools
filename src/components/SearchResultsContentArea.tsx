@@ -44,7 +44,7 @@ const SearchResultsContentArea = (props: Props) => {
             <h1 className="mt-6 text-3xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-400 sm:text-2xl lg:text-2xl">Search results for: {searchString}</h1>
             <Separator className="my-8 bg-stone-700 bg-opacity-75" />
             {searchResults.fetching && <Loader />}
-            {!searchResults.fetching && searchResults.data && <ToolsGridArea tools={searchResults.data} />}
+            {!searchResults.fetching && searchResults.data && <ToolsGridArea offset={2} pageCount={searchResults.data.length} tools={searchResults.data} />}
             <Footer />
         </ScrollArea>
     )
