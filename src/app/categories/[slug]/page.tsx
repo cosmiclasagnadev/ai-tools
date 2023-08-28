@@ -1,16 +1,43 @@
-import Footer from '@/components/Footer'
-import SimpleHeroBanner from '@/components/SimpleHeroBanner'
-import ToolCard from '@/components/ToolCard'
 import ToolsContentArea from '@/components/ToolsContentArea'
-import ToolsGridArea from '@/components/ToolsGridArea'
 import ContentAreaLayout from '@/components/layouts/ContentAreaLayout'
 import supabase from '@/lib/supabase'
-import {generateCategoryHeroContent} from '@/lib/utils'
+import {capitalizeAndRemoveHyphen, generateCategoryHeroContent} from '@/lib/utils'
+import {ResolvingMetadata, Metadata} from 'next'
 import React from 'react'
 
-type Props = {}
+type Props = {
+    params: {slug: string}
+}
 
-const SingleCategoryPage = async ({params: {slug}}: {params: {slug: string}}) => {
+export async function generateMetadata(
+    {params}: Props,
+    parent?: ResolvingMetadata
+): Promise<Metadata> {
+    const {slug} = params;
+    const newTitle = `AI ${capitalizeAndRemoveHyphen(slug)} Tools | AI Tools`;
+
+    return {
+        category: capitalizeAndRemoveHyphen(slug),
+        title: newTitle,
+        description: 'Curated collection of AI tools, all in one place. Discover the perfect tool for your next project or business and speed up your workflow!',
+        openGraph: {
+            title: newTitle,
+            url: 'https://aitools.sh',
+            description: 'Curated collection of AI tools, all in one place. Discover the perfect tool for your next project or business and speed up your workflow!',
+            type: 'website',
+        },
+        twitter: {
+            title: newTitle,
+            creator: '@cosmiclasagnadev',
+            card: 'summary_large_image',
+            site: 'https://aitools.sh',
+            description: 'Curated collection of AI tools, all in one place. Discover the perfect tool for your next project or business and speed up your workflow!',
+        }
+
+    }
+}
+
+const SingleCategoryPage = async ({params: {slug}}: Props) => {
     const {heroTitle, heroDescription} = generateCategoryHeroContent(slug);
     const {data: tools, error} = await supabase
         .from('tools')

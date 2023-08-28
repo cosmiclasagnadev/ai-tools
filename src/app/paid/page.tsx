@@ -10,6 +10,21 @@ export const revalidate = 30
 
 export const metadata = {
     title: 'Best Paid AI Tools | AI Tools',
+    description: 'Curated collection of AI tools, all in one place. Discover the perfect tool for your next project or business and speed up your workflow!',
+    openGraph: {
+        title: 'Best Paid AI Tools | AI Tools',
+        url: 'https://aitools.sh',
+        description: 'Curated collection of AI tools, all in one place. Discover the perfect tool for your next project or business and speed up your workflow!',
+        type: 'website',
+    },
+    twitter: {
+        title: 'Best Paid AI Tools | AI Tools',
+        creator: '@cosmiclasagnadev',
+        card: 'summary_large_image',
+        site: 'https://aitools.sh',
+        description: 'Curated collection of AI tools, all in one place. Discover the perfect tool for your next project or business and speed up your workflow!',
+        type: 'website',
+    }
 }
 
 const PaidToolsPage = async (props: Props) => {

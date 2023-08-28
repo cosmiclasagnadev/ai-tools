@@ -10,7 +10,24 @@ export const revalidate = 30
 
 export const metadata = {
     title: 'Free AI Tools | AI Tools',
+    description: 'Curated collection of AI tools, all in one place. Discover the perfect tool for your next project or business and speed up your workflow!',
+    openGraph: {
+        title: 'Free AI Tools | AI Tools',
+        url: 'https://aitools.sh',
+        description: 'Curated collection of AI tools, all in one place. Discover the perfect tool for your next project or business and speed up your workflow!',
+        type: 'website',
+    },
+    twitter: {
+        title: 'Free AI Tools | AI Tools',
+        creator: '@cosmiclasagnadev',
+        card: 'summary_large_image',
+        site: 'https://aitools.sh',
+        description: 'Curated collection of AI tools, all in one place. Discover the perfect tool for your next project or business and speed up your workflow!',
+        type: 'website',
+    }
 }
+
+
 
 const FreeToolsPage = async (props: Props) => {
     const {data: tools, error} = await supabase.from('tools').select('*').in('freeOrPaid', ['free', 'free-plan']).limit(20);
