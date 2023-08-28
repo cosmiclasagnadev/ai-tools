@@ -44,7 +44,7 @@ const ToolsContentArea = ({content, queryFunction, tools}: Props) => {
         <ScrollArea className="p-8">
             <SimpleHeroBanner {...content} />
             <Separator className="my-8 bg-stone-700 bg-opacity-75" />
-            <ToolsGridArea tools={loadedTools} />
+            <ToolsGridArea tools={loadedTools} pageCount={PAGE_COUNT} offset={offset} />
             {!isLast && (
                 <div className="w-full p-4 my-4">
                     <center>

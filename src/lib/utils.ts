@@ -6,10 +6,15 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const capitalizeAndRemoveHyphen = (str: string) => {
-  return str
+  const finalString = str
     .split("-")
     .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
     .join(" ");
+
+  if (finalString.endsWith("Tool")) {
+    return finalString.slice(0, -4);
+  }
+  return finalString;
 };
 
 export const removeHyphens = (str: string) => {
