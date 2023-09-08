@@ -28,7 +28,7 @@ export async function generateMetadata(
             images: {
                 url: '/opengraph-image.jpg',
                 alt: 'Free AI Tools Library | AiTools',
-              },
+            },
         },
         twitter: {
             title: newTitle,
@@ -36,7 +36,13 @@ export async function generateMetadata(
             card: 'summary_large_image',
             site: 'https://aitools.sh',
             description: 'Curated collection of AI tools, all in one place. Discover the perfect tool for your next project or business and speed up your workflow!',
-        }
+        },
+        alternates: {
+            canonical: `https://aitools.sh/categories/${slug}`,
+            languages: {
+                'en-US': '/en-US',
+            },
+        },
 
     }
 }

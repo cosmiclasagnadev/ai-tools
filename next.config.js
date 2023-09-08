@@ -10,6 +10,11 @@ const nextConfig = {
         hostname: "**",
         pathname: "/**",
       },
+      {
+        protocol: "http",
+        hostname: "s.aspectee.io",
+        pathname: "/**",
+      },
     ],
   },
 };

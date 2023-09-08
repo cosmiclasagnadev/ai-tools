@@ -19,7 +19,7 @@ export const metadata = {
         images: {
             url: '/opengraph-image.jpg',
             alt: 'Free AI Tools Library | AiTools',
-          },
+        },
     },
     twitter: {
         title: 'AI Tool Categories | AI Tools',
@@ -28,7 +28,13 @@ export const metadata = {
         site: 'https://aitools.sh',
         description: 'Curated collection of AI tools, all in one place. Discover the perfect tool for your next project or business and speed up your workflow!',
         type: 'website',
-    }
+    },
+    alternates: {
+        canonical: 'https://aitools.sh/categories',
+        languages: {
+            'en-US': '/en-US',
+        },
+    },
 }
 
 

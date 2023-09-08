@@ -20,7 +20,13 @@ export const metadata = {
         site: 'https://aitools.sh',
         description: 'Curated collection of AI tools, all in one place. Discover the perfect tool for your next project or business and speed up your workflow!',
         type: 'website',
-    }
+    },
+    alternates: {
+        canonical: 'https://aitools.sh/search',
+        languages: {
+            'en-US': '/en-US',
+        },
+    },
 }
 
 const SearchResultsPage = (props: Props) => {
