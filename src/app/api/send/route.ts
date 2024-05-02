@@ -1,24 +1,30 @@
-import {EmailTemplate} from "../../../components/email/email-template";
-import {NextRequest, NextResponse} from "next/server";
-import {Resend} from "resend";
-import {CreateEmailOptions} from "resend/build/src/emails/interfaces";
+import { EmailTemplate } from "../../../components/email/email-template";
+import { NextResponse } from "next/server";
+import { render } from "@react-email/render";
+import { Client } from "postmark";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const postmarkClient = new Client(process.env.POSTMARK_API_KEY!);
 
 export async function POST(request: Request) {
   const res = await request.json();
-  const {toolLink} = res;
+  const { toolLink } = res;
+  const emailHTML = render(EmailTemplate({ toolLink }));
 
   try {
-    const data = await resend.emails.send({
-      from: "AI Tools <hello@aitools.sh>",
-      to: ["allenpdl75@gmail.com"],
-      subject: "New Submission | AI Tools",
-      react: EmailTemplate({toolLink: toolLink}),
-    } as CreateEmailOptions);
+    const options = {
+      From: "AI Tools <hello@aitools.sh>",
+      To: "hello@aitools.sh",
+      Subject: "New Submission | AI Tools",
+      HtmlBody: emailHTML,
+    };
 
-    return NextResponse.json(data);
+    postmarkClient.sendEmail(options);
+
+    return NextResponse.json({ message: "Success!" });
   } catch (error) {
-    return NextResponse.json({error});
+    return NextResponse.json({
+      message: "Something went wrong!",
+      error: error,
+    });
   }
 }
