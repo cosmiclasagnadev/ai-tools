@@ -1,14 +1,23 @@
-import * as React from 'react';
+import * as React from "react";
+import { Html, Heading, Text } from "@react-email/components";
 
 interface EmailTemplateProps {
-    toolLink: string;
+  toolLink: string;
 }
 
-export const EmailTemplate: React.FC<EmailTemplateProps> = ({toolLink}) => (
-    <div>
-        <h1>New Tool Submission</h1>
-        <p>A new tool has been submitted to AI Tools!</p>
-        <p>Link: <code>{toolLink}</code></p>
-        <a href={toolLink} target="_blank">Visit Site</a>
-    </div>
-)
+export function EmailTemplate({ toolLink }: EmailTemplateProps) {
+  return (
+    <Html>
+      <div>
+        <Heading>New Tool Submission</Heading>
+        <Text>A new tool has been submitted to AI Tools!</Text>
+        <Text>
+          Link: <code>{toolLink}</code>
+        </Text>
+        <a href={toolLink} target="_blank">
+          Visit Site
+        </a>
+      </div>
+    </Html>
+  );
+}
