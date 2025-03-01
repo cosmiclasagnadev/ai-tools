@@ -7,6 +7,7 @@ import { Analytics } from "@vercel/analytics/next";
 const inter = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aitools.sh"),
   title: "Free AI Tools Library | AiTools",
   description:
     "Curated collection of AI tools, all in one place. Discover the perfect tool for your next project or business and speed up your workflow!",
