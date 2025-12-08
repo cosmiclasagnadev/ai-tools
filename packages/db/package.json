@@ -1,0 +1,38 @@
+{
+  "name": "@aitools/db",
+  "version": "0.1.0",
+  "description": "Database schema and client using Drizzle ORM",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "generate": "drizzle-kit generate:pg",
+    "migrate": "drizzle-kit migrate",
+    "studio": "drizzle-kit studio",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.45.0",
+    "postgres": "^3.4.0"
+  },
+  "peerDependencies": {
+    "@aitools/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "drizzle-kit": "^0.31.8",
+    "typescript": "^5.3.3"
+  }
+}
+
