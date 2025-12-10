@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+**/node_modules
 /.pnp
 .pnp.js
 bun.lockb
@@ -53,3 +54,6 @@ next-env.d.ts
 
 # Drizzle
 packages/db/drizzle/*.sql
+
+# Supabase temp folders
+supabase/.**
