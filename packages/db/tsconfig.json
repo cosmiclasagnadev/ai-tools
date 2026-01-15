@@ -12,7 +12,8 @@
     "paths": {
       "@aitools/*": ["../../packages/*/src"]
     },
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noEmit": false
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "drizzle"]

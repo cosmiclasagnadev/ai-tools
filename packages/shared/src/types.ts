@@ -7,6 +7,7 @@ export interface Tool {
   description: string;
   website: string;
   logo?: string;
+  previewImg: string;
   categories: string[];
   industries: string[];
   useCases: string[];
@@ -30,6 +31,74 @@ export interface Tool {
   createdAt: Date;
   updatedAt: Date;
   publishedAt?: Date;
+}
+
+export interface GitHubStats {
+  stars: number;
+  forks: number;
+  watchers: number;
+  openIssues: number;
+  lastCommitDate: Date | null;
+  contributors: number;
+  primaryLanguage: string | null;
+  license: string | null;
+  isActive: boolean;
+}
+
+export interface ToolWithGitHubStats extends Tool {
+  githubStats?: GitHubStats | null;
+}
+
+export interface OSSToolWithStats extends Tool {
+  githubStats: GitHubStats;
+}
+
+export interface IndustryHub {
+  industry: string;
+  displayName: string;
+  description: string;
+  toolCount: number;
+  topTools: ToolWithGitHubStats[];
+  categories: { name: string; count: number }[];
+}
+
+export interface SearchResult {
+  tools: ToolWithGitHubStats[];
+  total: number;
+  query: string;
+}
+
+export interface PaginatedResponse<T> {
+  data: T[];
+  total: number;
+  page: number;
+  pageSize: number;
+  totalPages: number;
+}
+
+export interface OSSFilterOptions {
+  licenses: { value: string; label: string }[];
+  languages: { value: string; label: string }[];
+  starRanges: { label: string; min: number; max?: number }[];
+}
+
+export interface OSSFilterCounts {
+  licenseCounts: Record<string, number>;
+  languageCounts: Record<string, number>;
+  starRangeCounts: Record<string, number>;
+  selfHostableCount: number;
+  dockerSupportCount: number;
+}
+
+export interface OSSFilters {
+  page?: number;
+  pageSize?: number;
+  license?: string;
+  language?: string;
+  minStars?: number;
+  selfHostable?: boolean;
+  dockerSupport?: boolean;
+  difficulty?: string;
 }
 
 // User types

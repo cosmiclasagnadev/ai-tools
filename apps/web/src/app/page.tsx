@@ -1,11 +1,13 @@
+import { Hero } from '@/components/home/hero';
+import { BannerAd } from '@/components/home/banner-ad';
+import { ToolDirectory } from '@/components/home/tool-directory';
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold">AITools.sh</h1>
-      <p className="mt-4 text-xl text-gray-600">
-        Discover and learn about AI tools for your business
-      </p>
-    </main>
+    <div className="min-h-screen bg-stone-900">
+      <Hero />
+      <BannerAd />
+      <ToolDirectory />
+    </div>
   );
 }
-

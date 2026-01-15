@@ -2,8 +2,8 @@ import type { NextConfig } from 'next';
 
 const config: NextConfig = {
   reactStrictMode: true,
-  typescript: {
-    tsconfigPath: '../../tsconfig.json',
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001',
   },
 };
 

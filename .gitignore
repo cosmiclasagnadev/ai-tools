@@ -57,3 +57,5 @@ packages/db/drizzle/*.sql
 
 # Supabase temp folders
 supabase/.**
+
+.cursor**

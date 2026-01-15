@@ -8,7 +8,9 @@
     "sourceMap": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "skipLibCheck": true
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "noEmit": false
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

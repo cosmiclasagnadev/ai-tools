@@ -65,6 +65,28 @@ export type ToolStatus = (typeof TOOL_STATUSES)[number];
 export const SUBMISSION_STATUSES = ['pending', 'approved', 'rejected', 'duplicate'] as const;
 export type SubmissionStatus = (typeof SUBMISSION_STATUSES)[number];
 
+// Star filter ranges
+export const STAR_RANGES = [
+  { label: '100+', min: 100 },
+  { label: '1k+', min: 1000 },
+  { label: '5k+', min: 5000 },
+  { label: '10k+', min: 10000 },
+] as const;
+
+// OSS programming languages
+export const LANGUAGES = [
+  'Python',
+  'TypeScript',
+  'JavaScript',
+  'Go',
+  'Rust',
+  'Java',
+  'C++',
+  'Ruby',
+] as const;
+
+export type Language = (typeof LANGUAGES)[number];
+
 // Feature flags
 export const FEATURES = {
   ENABLE_USER_ACCOUNTS: process.env.ENABLE_USER_ACCOUNTS === 'true',

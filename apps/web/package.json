@@ -13,6 +13,7 @@
   "dependencies": {
     "@aitools/db": "workspace:*",
     "@aitools/shared": "workspace:*",
+    "@radix-ui/react-switch": "^1.2.6",
     "@tailwindcss/postcss": "^4.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

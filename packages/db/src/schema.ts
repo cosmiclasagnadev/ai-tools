@@ -20,6 +20,7 @@ export const tools = pgTable('tools', {
   description: text('description').notNull(),
   website: varchar('website', { length: 512 }).notNull(),
   logo: varchar('logo', { length: 512 }),
+  previewImage: varchar('preview_image').default('https://placehold.co/600x400'),
   categories: text('categories').array(),
   industries: text('industries').array(),
   useCases: text('use_cases').array(),
