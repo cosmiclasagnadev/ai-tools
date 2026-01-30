@@ -20,6 +20,7 @@
     "generate": "drizzle-kit generate:pg",
     "migrate": "drizzle-kit migrate",
     "studio": "drizzle-kit studio",
+    "seed": "bun run src/seed.ts",
     "clean": "rm -rf dist"
   },
   "dependencies": {
