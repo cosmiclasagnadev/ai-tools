@@ -8,6 +8,13 @@
       "when": 1769777093237,
       "tag": "0000_orange_shatterstar",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1769777589364,
+      "tag": "0001_flawless_thunderbolt_ross",
+      "breakpoints": true
     }
   ]
 }

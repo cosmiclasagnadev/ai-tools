@@ -21,6 +21,7 @@
     "migrate": "drizzle-kit migrate",
     "studio": "drizzle-kit studio",
     "seed": "bun run src/seed.ts",
+    "create-admin": "bun run scripts/create-admin.ts",
     "clean": "rm -rf dist"
   },
   "dependencies": {

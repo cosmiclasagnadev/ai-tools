@@ -224,3 +224,50 @@ export const githubStats = pgTable('github_stats', {
   repositoryIdx: index('github_stats_repository_idx').on(table.repository),
 }));
 
+// Better Auth - Sessions table
+export const sessions = pgTable('sessions', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  userId: uuid('user_id').notNull(),
+  token: varchar('token', { length: 255 }).notNull().unique(),
+  expiresAt: timestamp('expires_at').notNull(),
+  ipAddress: varchar('ip_address', { length: 255 }),
+  userAgent: text('user_agent'),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow(),
+}, (table) => ({
+  userIdIdx: index('sessions_user_id_idx').on(table.userId),
+  tokenIdx: index('sessions_token_idx').on(table.token),
+}));
+
+// Better Auth - Accounts table (for OAuth)
+export const accounts = pgTable('accounts', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  userId: uuid('user_id').notNull(),
+  accountId: varchar('account_id', { length: 255 }).notNull(),
+  providerId: varchar('provider_id', { length: 255 }).notNull(),
+  accessToken: text('access_token'),
+  refreshToken: text('refresh_token'),
+  accessTokenExpiresAt: timestamp('access_token_expires_at'),
+  refreshTokenExpiresAt: timestamp('refresh_token_expires_at'),
+  scope: text('scope'),
+  idToken: text('id_token'),
+  password: text('password'),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow(),
+}, (table) => ({
+  userIdIdx: index('accounts_user_id_idx').on(table.userId),
+  accountProviderIdx: index('accounts_account_provider_idx').on(table.accountId, table.providerId),
+}));
+
+// Better Auth - Verifications table
+export const verifications = pgTable('verifications', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  identifier: varchar('identifier', { length: 255 }).notNull(),
+  value: varchar('value', { length: 255 }).notNull(),
+  expiresAt: timestamp('expires_at').notNull(),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow(),
+}, (table) => ({
+  identifierIdx: index('verifications_identifier_idx').on(table.identifier),
+}));
+
